@@ -20,11 +20,10 @@
                 <h2 class="ui teal header item">啾啾啾</h2>
                 <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1}?'active'"><i class="home icon"></i>博客</a>
                 <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2}?'active'"><i class="idea icon"></i>分类</a>
-<!--                <a href="#" th:href="@{/types}" class="m-item item m-mobile-hide" th:classappend="${n==3}?'active'"><i class="clone icon"></i>归档</a>-->
-                <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" th:href="@{/archiver}"class="m-item item m-mobile-hide" th:classappend="${n==3}?'active'"><i class="clone icon"></i>时间线</a>
                 <a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==4}?'active'"><i class="info icon"></i>关于我</a>
                 <div class="right m-item item m-mobile-hide">
-                    <form name="search" action="#" method="post" th:action="@{/search}" target="_blank">
+                    <form name="search" action="#" method="post" th:action="@{/search}">
                         <div class="ui icon inverted transparent input">
                             <input type="text" name="query" placeholder="Search...." th:value="${query}">
                             <i onclick="document.forms['search'].submit()" class="search link icon"></i>

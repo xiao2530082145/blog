@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="_fragments :: head(~{::title})">
+    <title>时间线</title>
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(3)"></nav>
+<link rel="stylesheet" href="../static/css/archiver.css" th:href="@{/css/archiver.css}">
+
+
+<!--中间内容-->
+
+<div class="timeline-small">
+    <div class="header">
+        <div class="color-overlay">
+            <div class="header-name">时间线</div>
+        </div>
+    </div>
+
+    <div class="timeline-small-body" th:each="blog : ${pageInfo.list}">
+        <ul>
+            <li>
+                <div class="bullet pink"></div>
+                <div class="date" th:text="${#dates.format(blog.createTime, 'yyyy-MM-dd')}">Jun 2015 to Jan 2017</div>
+                <div class="desc">
+                    <h3 class="ui header"><a target="_blank" th:href="@{/blog/{id}(id=${blog.id})}"
+                           th:text="${blog.title}">你真的实现财富自由了吗？</a></h3>
+                    <p class="m-text" th:text="${blog.blogDescription}">OmniPrime Marketing, Inc.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="header">
+        <div class="color-overlay">
+
+            <div class="header-name">梦开始的地方</div>
+        </div>
+    </div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<!--底部内容-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+</footer>
+
+<th:block th:replace="_fragments :: script">
+</th:block>
+
+</script>
+</body>
+</html>
