@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyc.blog.dao.TypeDao">
+
+    <insert id="saveType" parameterType="Type">
+        insert into blog.t_types (id, name)
+        values (#{id}, #{name})
+    </insert>
+
+    <select id="getTypeById" resultType="Type">
+        select id, name
+        from blog.t_types
+        where id = #{id}
+    </select>
+
+    <select id="getTypeByName" resultType="Type">
+        select id, name
+        from blog.t_types
+        where name = #{name}
+    </select>
+
+
+    <resultMap id="type" type="Type">
+        <id property="id" column="tid"/>
+        <result property="name" column="name"/>
+        <result property="blogNum" column="blogNum"/>
+        <collection property="blogs" ofType="Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="typeId" column="typeId"/>
+        </collection>
+    </resultMap>
+
+    <select id="getAllTypes" resultMap="type">
+        select t_types.id tid, t_types.`name`, count(t_blogs.id) blogNum
+        from t_types
+                 left JOIN t_blogs on t_types.id = t_blogs.typeId
+        GROUP BY t_types.id
+    </select>
+
+    <select id="getDetailTypes" resultMap="type">
+        select t.id tid, t.name, b.id bid, b.title, b.typeId
+        from t_types t,
+             t_blogs b
+        where t.id = b.typeId
+    </select>
+
+
+    <update id="updateType" parameterType="Type">
+        update blog.t_types
+        set name = #{name}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteType">
+        delete
+        from blog.t_types
+        where id = #{id}
+    </delete>
+
+</mapper>

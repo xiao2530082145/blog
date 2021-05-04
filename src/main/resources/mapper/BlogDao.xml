@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyc.blog.dao.BlogDao">
+
+    <resultMap id="blog" type="Blog">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="firstPicture" column="picture"/>
+        <result property="flag" column="flag"/>
+        <result property="views" column="views"/>
+        <result property="appreciation" column="appreciation"/>
+        <result property="shareStatement" column="shareStatement"/>
+        <result property="blogDescription" column="blogDescription"/>
+        <result property="createTime" column="createTime"/>
+        <result property="updateTime" column="updateTime"/>
+        <result property="typeId" column="typeId"/>
+        <result property="userId" column="userId"/>
+        <association property="type" javaType="Type">
+            <id property="id" column="tid"/>
+            <result property="name" column="name"/>
+        </association>
+        <association property="user" javaType="User">
+            <id property="id" column="uid"/>
+            <result property="nickname" column="nickname"/>
+            <result property="username" column="username"/>
+            <result property="email" column="email"/>
+            <result property="avatar" column="avatar"/>
+        </association>
+    </resultMap>
+
+    <select id="getAllBlogsByTypeId" resultMap="blog">
+        select b.id, b.title, b.content, b.picture, b.flag, b.shareStatement, b.appreciation, b.views, b.typeId, b.updateTime,b.createTime,b.blogDescription,
+               t.id tid, t.name,
+               u.id uid, u.nickname, u.avatar
+        from t_blogs b, t_user u, t_types t
+        where b.typeId = t.id and b.userId = u.id and t.id = #{id}
+    </select>
+
+    <select id="getAllBlog" resultMap="blog">
+        select b.id, b.title, b.content, b.picture, b.flag, b.shareStatement, b.appreciation, b.views, b.typeId, b.updateTime,b.createTime,
+               t.id tid, t.name,
+               u.id uid, u.nickname, u.avatar
+        from t_blogs b, t_user u, t_types t
+        where b.typeId = t.id and b.userId = u.id
+    </select>
+
+    <select id="getBlogByQuery" resultMap="blog">
+
+
+        select b.id, b.title, b.picture, b.flag, b.views, b.typeId, b.updateTime,b.blogDescription,
+               t.id tid, t.name,
+               u.id uid, u.nickname, u.avatar
+        from t_blogs b, t_user u, t_types t
+        where b.typeId = t.id and b.userId = u.id and  b.title like concat('%', #{title},'%')
+        order by b.updateTime desc,b.views desc
+
+    </select>
+
+    <select id="getBlogsByCondition" resultMap="blog" parameterType="Blog">
+        select b.id, b.title, b.views, b.updateTime, b.typeId,
+        t.id tid,t.name
+        from t_blogs b
+        join t_types t
+        on b.typeId = t.id
+        where b.title like concat('%', #{title},'%')
+        <if test="typeId!=null">
+            and t.id = #{typeId}
+        </if>
+    </select>
+
+    <select id="getBlogById" resultMap="blog">
+        select b.*, t.id tid, t.`name`
+        from t_blogs b
+                 JOIN t_types t on b.typeId = t.id
+        where b.id = #{id}
+    </select>
+
+    <insert id="saveBlog" parameterType="Blog" useGeneratedKeys="true" keyProperty="id">
+        insert into t_blogs (title, content, picture, flag, blogDescription,
+                             views, appreciation, shareStatement,
+                             createTime, updateTime, typeId, userId)
+        values (#{title}, #{content}, #{firstPicture}, #{flag},#{blogDescription}, #{views}, #{appreciation},
+                #{shareStatement}, #{createTime},
+                #{updateTime}, #{typeId}, #{userId});
+    </insert>
+
+    <update id="updateBlog" parameterType="Blog">
+        update t_blogs
+        set title          = #{title},
+            picture        = #{firstPicture},
+            flag           = #{flag},
+            content        = #{content},
+            appreciation   = #{appreciation},
+            shareStatement = #{shareStatement},
+            typeId         = #{typeId},
+            updateTime     = #{updateTime},
+            blogDescription=#{blogDescription}
+        where id = #{id}
+    </update>
+
+    <select id="getIndexBlog" resultMap="blog">
+        select b.id, b.title, b.picture, b.flag, b.views, b.typeId, b.updateTime,b.blogDescription,
+               t.id tid, t.name,
+               u.id uid, u.nickname, u.avatar
+        from t_blogs b, t_user u, t_types t
+        where b.typeId = t.id and b.userId = u.id
+        order by b.updateTime desc,b.views desc
+    </select>
+
+    <select id="getDetailBlogById" resultMap="blog">
+        select b.id, b.title, b.content, b.picture, b.flag, b.shareStatement, b.appreciation, b.views, b.typeId, b.updateTime,b.createTime,
+               t.id tid, t.name,
+               u.id uid, u.nickname, u.avatar
+        from t_blogs b, t_user u, t_types t
+        where b.typeId = t.id and b.userId = u.id and b.id = #{id}
+    </select>
+
+    <update id="viewsIncrease">
+        update t_blogs set views = #{views} where id = #{id}
+    </update>
+
+    <delete id="deleteBlog">
+        delete
+        from t_blogs
+        where id = #{id}
+    </delete>
+
+
+</mapper>

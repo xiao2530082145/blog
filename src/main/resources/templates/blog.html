@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="_fragments :: head(~{::title})">
+    <title>博客</title>
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="_fragments :: menu(0)"></nav>
+
+<!--中间内容-->
+<div id="waypoint" class="m-container-small m-padded-tb-big animated fadeIn">
+    <div class="ui container">
+        <!--头部信息-->
+        <div class="ui top attached segment">
+            <div class="ui horizontal link list">
+                <div class="item">
+                    <img src="https://picsum.photos/100/100" th:src="${blog.user.avatar}" alt=""
+                         class="ui avatar image">
+                    <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}">肖耀陈</a></div>
+                </div>
+                <div class="item">
+                    <i class="calendar icon"></i> <span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2020-10-27</span>
+                </div>
+                <div class="item">
+                    <i class="eye icon"></i><span th:text="${blog.views}">123</span>
+                </div>
+            </div>
+        </div>
+        <!--图片-->
+        <div class="ui attached segment">
+            <img src="https://picsum.photos/800/450" th:src="${blog.firstPicture}" alt=""
+                 class="ui fluid rounded image">
+        </div>
+        <!--文章内容-->
+        <div class="ui  attached padded segment">
+            <div class="ui right aligned basic segment">
+                <div class="ui orange basic label" th:text="${blog.flag}">原创</div>
+            </div>
+            <h2 class="ui center aligned header" th:text="${blog.title}">关于刻意练习的清单</h2>
+            <br>
+
+            <!--   主体内容   -->
+            <div id="content" class="typo js-toc-content typo-selection m-padded-lr-responsive m-padded-tb-large"
+                 th:utext="${blog.content}"></div>
+            <!--赞赏-->
+            <div th:if="${blog.appreciation}">
+                <div class="ui center aligned basic segment">
+                    <button id="payButton" class="ui  orange basic circular button">赞赏</button>
+                </div>
+                <div class="ui payQR flowing popup top left transition hidden">
+                    <div class="ui images" style="font-size: inherit !important;">
+                        <div class="image">
+                            <a target="_blank" href="/images/alipay.png">
+                                <img src="../static/images/alipay.png" th:src="@{/images/alipay.png}" alt=""
+                                     class="ui rounded bordered image" style="width: 120px">
+                            </a>
+                            <div>支付宝</div>
+                        </div>
+                        <div class="image">
+                            <a target="_blank" href="/images/wechatpay.png">
+                                <img src="../static/images/wechatpay.png" th:src="@{/images/wechatpay.png}" alt=""
+                                     class="ui rounded bordered image" style="width: 120px">
+                            </a>
+                            <div>微信</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--博客信息-->
+        <div class="ui bottom attached positive message" th:if="${blog.shareStatement}">
+            <div class="ui middle aligned grid">
+                <div class="eleven wide column">
+                    <ui class="list">
+                        <li>作者: <span th:text="${blog.user.nickname}"></span></li>
+                        <li>发表时间: <span th:text="${#dates.format(blog.createTime, 'yyyy-MM-dd')}"></span></li>
+                        <li>版权声明: 待填</li>
+                        <li>公众号转载: 请在文末添加作者公众号二维码</li>
+                    </ui>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<!--工具栏-->
+<div id="toolbar" class="m-fixed m-right-bottom m-padded-large" style="display: none">
+    <div class="ui vertical icon buttons">
+        <button type="button" class="ui toc teal button">目录</button>
+        <div id="toTop-button" class="ui icon button"><i class="chevron up icon"></i></div>
+    </div>
+</div>
+<!--目录-->
+<div class="ui toc-container flowing popup top left transition hidden" style="width: 250px">
+    <ol class="js-toc">
+    </ol>
+</div>
+
+<!--底部内容-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+
+</footer>
+
+<th:block th:replace="_fragments :: script">
+
+</th:block>
+</body>
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('#payButton').popup({
+        popup: $('.payQR.popup'),
+        on: 'click',
+        position: 'bottom center'
+    });
+    $('.toc.button').popup({
+        popup: $('.toc-container.popup'),
+        on: 'click',
+        position: 'top center'
+    });
+    // $('.wechat').popup({
+    //   popup : $('.wechat-qr'),
+    //   position : 'top center'
+    // });
+
+    tocbot.init({
+        // Where to render the table of contents.
+        tocSelector: '.js-toc',
+        // Where to grab the headings to build the table of contents.
+        contentSelector: '.js-toc-content',
+        // Which headings to grab inside of the contentSelector element.
+        headingSelector: 'h1, h2, h3',
+        // For headings inside relative or absolute positioned containers within content.
+        hasInnerContainers: true,
+    });
+
+    // var qrcode = new QRCode("qrcode", {
+    //   text: "http://jindo.dev.naver.com/collie",
+    //   width: 110,
+    //   height: 110,
+    //   colorDark : "#000000",
+    //   colorLight : "#ffffff",
+    //   correctLevel : QRCode.CorrectLevel.H
+    // });
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0, 500);
+    });
+
+    var waypoint = new Waypoint({
+        element: document.getElementById('waypoint'),
+        handler: function (direction) {
+            if (direction == 'down') {
+                $('#toolbar').show(300);
+            } else {
+                $('#toolbar').hide(300);
+            }
+            console.log('Scrolled to waypoint!')
+        }
+    })
+</script>
+</html>

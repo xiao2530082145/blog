@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xyc.blog.dao.UserDao">
+
+    <resultMap id="user" type="User">
+        <id property="id" column="id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="email" column="email"/>
+        <result property="avatar" column="avatar"/>
+        <result property="userDescription" column="userDescription"/>
+    </resultMap>
+
+    <select id="getByUsernameAndPassword" resultType="User">
+        select * from blog.t_user
+        where username = #{username} and password = #{password};
+    </select>
+
+    <select id="getUserInfo" resultMap="user">
+        select nickname, email, avatar, userDescription from t_user where id = 1;
+    </select>
+
+</mapper>

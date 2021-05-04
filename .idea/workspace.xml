@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f9c5e5f1-65e2-46d0-806a-727781def7d3" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Aspect" />
+        <option value="@Aspect" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:\Java\apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="D:\Java\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1rT0ngQFfOHkDuaqmTrIGfYhC7g" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.4028777" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\projects\blog\src\main\resources\static\images" />
+      <recent name="D:\projects\blog\src\main\resources\templates\images" />
+      <recent name="D:\projects\blog\src\main\resources" />
+      <recent name="D:\projects\blog\src\main\resources\static\lib\editormd" />
+      <recent name="D:\projects\blog\src\main\resources\static" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\projects\blog\src\main\resources\static\images" />
+      <recent name="D:\projects\blog\src\main\resources\templates\images" />
+      <recent name="D:\projects\blog\src\main\java\com\xyc\blog\Utils" />
+      <recent name="D:\projects\blog\src\main\resources\static" />
+      <recent name="D:\projects\blog\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="blog" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xyc.blog.BlogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f9c5e5f1-65e2-46d0-806a-727781def7d3" name="Default Changelist" comment="" />
+      <created>1618984941215</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618984941215</updated>
+      <workItem from="1618984942305" duration="1450000" />
+      <workItem from="1618986509573" duration="9324000" />
+      <workItem from="1618996569536" duration="2490000" />
+      <workItem from="1618999248864" duration="6468000" />
+      <workItem from="1619007466238" duration="1609000" />
+      <workItem from="1619009400244" duration="117000" />
+      <workItem from="1619009550003" duration="5238000" />
+      <workItem from="1619059645344" duration="2187000" />
+      <workItem from="1619061996001" duration="13369000" />
+      <workItem from="1619084141454" duration="3065000" />
+      <workItem from="1619090728135" duration="12453000" />
+      <workItem from="1619145270438" duration="4329000" />
+      <workItem from="1619155685833" duration="299000" />
+      <workItem from="1619156016877" duration="108000" />
+      <workItem from="1619156364558" duration="17006000" />
+      <workItem from="1619414971492" duration="11321000" />
+      <workItem from="1619446683767" duration="3005000" />
+      <workItem from="1619504400567" duration="11797000" />
+      <workItem from="1619597956616" duration="16855000" />
+      <workItem from="1619676146913" duration="363000" />
+      <workItem from="1619676529554" duration="1524000" />
+      <workItem from="1619775469290" duration="4526000" />
+      <workItem from="1619868654416" duration="6868000" />
+      <workItem from="1619934029111" duration="12559000" />
+      <workItem from="1619957738743" duration="13557000" />
+      <workItem from="1620000062860" duration="14758000" />
+      <workItem from="1620026252847" duration="3563000" />
+      <workItem from="1620030606532" duration="4931000" />
+      <workItem from="1620106506596" duration="115000" />
+      <workItem from="1620118947312" duration="5366000" />
+      <workItem from="1620128628147" duration="1817000" />
+      <workItem from="1620130493886" duration="1428000" />
+      <workItem from="1620131950890" duration="2955000" />
+      <workItem from="1620134951305" duration="3803000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
